@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petclinic-green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: petclinic
+      version: green
+  template:
+    metadata:
+      labels:
+        app: petclinic
+        version: green
+    spec:
+      containers:
+      - name: petclinic
+        image: rohith13s/petclinic:IMAGE_TAG
+        ports:
+        - containerPort: 8080
+
